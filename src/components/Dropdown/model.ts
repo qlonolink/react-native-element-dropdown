@@ -38,6 +38,8 @@ export interface DropdownProps<T> {
   autoScroll?: boolean;
   showsVerticalScrollIndicator?: boolean;
   dropdownPosition?: 'auto' | 'top' | 'bottom';
+  dropdownWidth?: number;
+  dropdownPositionStart?: 'left' | 'right';
   flatListProps?: Omit<FlatListProps<any>, 'renderItem' | 'data'>;
   keyboardAvoiding?: boolean;
   backgroundColor?: string;
@@ -48,7 +50,7 @@ export interface DropdownProps<T> {
   mode?: 'default' | 'modal' | 'auto';
   closeModalWhenSelectedItem?: boolean;
   excludeItems?: T[];
-  currentElement: JSX.Element | null | undefined;
+  baseElement: JSX.Element;
   onChange: (item: T) => void;
   renderLeftIcon?: (visible?: boolean) => JSX.Element | null | undefined;
   renderRightIcon?: (visible?: boolean) => JSX.Element | null | undefined;

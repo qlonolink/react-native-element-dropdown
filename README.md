@@ -63,6 +63,8 @@ yarn add react-native-element-dropdown
 | activeColor        | String                                          | No        | Background color for item selected in list container                |
 | disable            | Boolean                                         | No        | Specifies the disabled state of the Dropdown                        |
 | dropdownPosition   | 'auto' or 'top' or 'bottom'                     | No        | Dropdown list position. Default is 'auto'                           |
+| dropdownWidth      | Number                                          | No        | When dropdownPositionStart is right, it is required.                |
+| dropdownPositionStart | 'left' or 'right'                            | No        |  Dropdown list start position. Default is 'left'                    |
 | autoScroll         | Boolean                                         | No        | Auto scroll to index item selected, default is true                 |
 | showsVerticalScrollIndicator | Boolean                               | No        | When true, shows a vertical scroll indicator, default is true       |
 | renderLeftIcon     | (visible?: boolean) => JSX.Element              | No        | Customize left icon for dropdown                                    |

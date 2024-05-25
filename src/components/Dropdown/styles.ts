@@ -33,11 +33,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     height: 35,
   },
-  title: {
-    marginVertical: 5,
-    fontSize: 16,
-    writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr',
-  },
   item: {
     padding: 17,
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
@@ -52,14 +47,6 @@ export const styles = StyleSheet.create({
   icon: {
     width: 20,
     height: 20,
-  },
-  input: {
-    borderWidth: 0.5,
-    borderColor: '#DDDDDD',
-    paddingHorizontal: 8,
-    marginBottom: 8,
-    margin: 6,
-    height: 45,
   },
   fullScreen: {
     alignItems: 'center',

@@ -82,7 +82,9 @@ const DropdownComponent: <T>(
       mode = 'default',
       closeModalWhenSelectedItem = true,
       excludeItems = [],
-      currentElement,
+      baseElement,
+      dropdownPositionStart = 'left',
+      dropdownWidth = 0,
     } = props;
 
     const ref = useRef<View>(null);
@@ -187,12 +189,15 @@ const DropdownComponent: <T>(
             width: Math.floor(width),
             top: Math.floor(top + statusBarHeight),
             bottom: Math.floor(bottom - statusBarHeight),
-            left: Math.floor(left),
+            left: Math.floor(
+              left +
+                (dropdownPositionStart === 'right' ? width - dropdownWidth : 0)
+            ),
             height: Math.floor(height),
           });
         });
       }
-    }, [H, W, orientation, mode]);
+    }, [mode, orientation, H, W, dropdownPositionStart, dropdownWidth]);
 
     const onKeyboardDidShow = useCallback(
       (e: KeyboardEvent) => {
@@ -341,7 +346,7 @@ const DropdownComponent: <T>(
         >
           <View style={styles.dropdown}>
             {renderLeftIcon?.(visible)}
-            {currentElement}
+            {baseElement}
             {renderRightIcon ? (
               renderRightIcon(visible)
             ) : (
