@@ -49,7 +49,6 @@ const SelectCountryScreen = () => {
       selectedTextStyle={styles.selectedTextStyle}
       placeholderStyle={styles.placeholderStyle}
       imageStyle={styles.imageStyle}
-      inputSearchStyle={styles.inputSearchStyle}
       iconStyle={styles.iconStyle}
       search
       maxHeight={200}
@@ -59,7 +58,6 @@ const SelectCountryScreen = () => {
       labelField="lable"
       imageField="image"
       placeholder="Select country 1"
-      searchPlaceholder="Search..."
       onChange={(e) => {
         setCountry(e.value);
       }}

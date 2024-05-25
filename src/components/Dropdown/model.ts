@@ -27,7 +27,6 @@ export interface DropdownProps<T> {
   selectedTextProps?: TextProps;
   itemContainerStyle?: StyleProp<ViewStyle>;
   itemTextStyle?: StyleProp<TextStyle>;
-  inputSearchStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageStyle>;
   maxHeight?: number;
   minHeight?: number;
@@ -39,9 +38,7 @@ export interface DropdownProps<T> {
   placeholder?: string;
   labelField: keyof T;
   valueField: keyof T;
-  searchField?: keyof T;
   search?: boolean;
-  searchPlaceholder?: string;
   disable?: boolean;
   autoScroll?: boolean;
   showsVerticalScrollIndicator?: boolean;
@@ -56,17 +53,12 @@ export interface DropdownProps<T> {
   mode?: 'default' | 'modal' | 'auto';
   closeModalWhenSelectedItem?: boolean;
   excludeItems?: T[];
-  excludeSearchItems?: T[];
   onChange: (item: T) => void;
   renderLeftIcon?: (visible?: boolean) => JSX.Element | null | undefined;
   renderRightIcon?: (visible?: boolean) => JSX.Element | null | undefined;
   renderItem?: (item: T, selected?: boolean) => JSX.Element | null | undefined;
-  renderInputSearch?: (
-    onSearch: (text: string) => void
-  ) => JSX.Element | null | undefined;
   onFocus?: () => void;
   onBlur?: () => void;
-  searchQuery?: (keyword: string, labelValue: string) => boolean;
   onChangeText?: (search: string) => void;
   onConfirmSelectItem?: (item: T) => void;
 }

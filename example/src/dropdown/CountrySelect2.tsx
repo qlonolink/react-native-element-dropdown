@@ -58,7 +58,6 @@ const SelectCountryScreen = () => {
       labelField="lable"
       imageField="image"
       placeholder="Select country 2"
-      searchPlaceholder="Search..."
       onChange={(e) => {
         setCountry(e.value);
       }}
