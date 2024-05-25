@@ -2,7 +2,6 @@ import type {
   StyleProp,
   TextStyle,
   ViewStyle,
-  TextProps,
   ImageStyle,
   FlatListProps,
 } from 'react-native';
@@ -22,9 +21,6 @@ export interface DropdownProps<T> {
   itemTestIDField?: string;
   style?: StyleProp<ViewStyle>;
   containerStyle?: StyleProp<ViewStyle>;
-  placeholderStyle?: StyleProp<TextStyle>;
-  selectedTextStyle?: StyleProp<TextStyle>;
-  selectedTextProps?: TextProps;
   itemContainerStyle?: StyleProp<ViewStyle>;
   itemTextStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageStyle>;
@@ -35,7 +31,6 @@ export interface DropdownProps<T> {
   activeColor?: string;
   data: T[];
   value?: T | string | null | undefined;
-  placeholder?: string;
   labelField: keyof T;
   valueField: keyof T;
   search?: boolean;
@@ -53,6 +48,7 @@ export interface DropdownProps<T> {
   mode?: 'default' | 'modal' | 'auto';
   closeModalWhenSelectedItem?: boolean;
   excludeItems?: T[];
+  currentElement: JSX.Element | null | undefined;
   onChange: (item: T) => void;
   renderLeftIcon?: (visible?: boolean) => JSX.Element | null | undefined;
   renderRightIcon?: (visible?: boolean) => JSX.Element | null | undefined;

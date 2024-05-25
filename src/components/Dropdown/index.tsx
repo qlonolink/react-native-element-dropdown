@@ -48,12 +48,9 @@ const DropdownComponent: <T>(
       onChange,
       style = {},
       containerStyle,
-      placeholderStyle,
-      selectedTextStyle,
       itemContainerStyle,
       itemTextStyle,
       iconStyle,
-      selectedTextProps = {},
       data = [],
       labelField,
       valueField,
@@ -61,7 +58,6 @@ const DropdownComponent: <T>(
       activeColor = '#F6F7F8',
       fontFamily,
       iconColor = 'gray',
-      placeholder = 'Select item',
       search = false,
       maxHeight = 340,
       minHeight = 0,
@@ -86,6 +82,7 @@ const DropdownComponent: <T>(
       mode = 'default',
       closeModalWhenSelectedItem = true,
       excludeItems = [],
+      currentElement,
     } = props;
 
     const ref = useRef<View>(null);
@@ -335,7 +332,6 @@ const DropdownComponent: <T>(
     );
 
     const _renderDropdown = () => {
-      const isSelected = currentValue && _.get(currentValue, valueField);
       return (
         <TouchableWithoutFeedback
           testID={testID}
@@ -345,18 +341,7 @@ const DropdownComponent: <T>(
         >
           <View style={styles.dropdown}>
             {renderLeftIcon?.(visible)}
-            <Text
-              style={[
-                styles.textItem,
-                isSelected !== null ? selectedTextStyle : placeholderStyle,
-                font(),
-              ]}
-              {...selectedTextProps}
-            >
-              {isSelected !== null
-                ? _.get(currentValue, labelField)
-                : placeholder}
-            </Text>
+            {currentElement}
             {renderRightIcon ? (
               renderRightIcon(visible)
             ) : (
