@@ -61,11 +61,6 @@ yarn add react-native-element-dropdown
 | itemContainerStyle | TextStyle                                       | No        | Styling for item container in list                                  |
 | itemTextStyle      | TextStyle                                       | No        | Styling for text item in list                                       |
 | activeColor        | String                                          | No        | Background color for item selected in list container                |
-| search             | Boolean                                         | No        | Show or hide input search                                           |
-| searchQuery        | (keyword: string, labelValue: string) => Boolean| No        | Callback used to filter the list of items                           |
-| inputSearchStyle   | ViewStyle                                       | No        | Styling for input search                                            |
-| searchPlaceholder  | String                                          | No        | The string that will be rendered before text input has been entered |
-| renderInputSearch  | (onSearch: (text:string) => void) => JSX.Element| No        | Customize TextInput search                                          |
 | disable            | Boolean                                         | No        | Specifies the disabled state of the Dropdown                        |
 | dropdownPosition   | 'auto' or 'top' or 'bottom'                     | No        | Dropdown list position. Default is 'auto'                           |
 | autoScroll         | Boolean                                         | No        | Auto scroll to index item selected, default is true                 |
@@ -87,8 +82,6 @@ yarn add react-native-element-dropdown
 | itemAccessibilityLabelField | String                                 | No        | Add this field to the input data. Ex: DATA = [{itemAccessibilityLabelField: '', label: '', value:: ''}]|
 | closeModalWhenSelectedItem | Boolean                                 | No        | By default, closeModalWhenSelectedItem is set to true. When closeModalWhenSelectedItem is set to false, the Modal won't close when an item is selected. |
 | excludeItems       | Item[]                                          | No        | The array containing the items to be excluded.                      |
-| excludeSearchItems | Item[]                                          | No        | The array containing the items to be excluded.                      |
-
 
 
 ### MultiSelect Props
@@ -98,7 +91,6 @@ yarn add react-native-element-dropdown
 | data               | Array                                                | Yes       | Data is a plain array                                               |
 | labelField         | String                                               | Yes       | Extract the label from the data item                                |
 | valueField         | String                                               | Yes       | Extract the primary key from the data item                          |
-| searchField        | String                                               | No       | Specify the field of data list you want to search                   |
 | onChange           | (value[]) => void                                    | Yes       | Selection callback. A array containing the "valueField".            |
 | onChangeText       | (search: string) => void                             | No       | Callback that is called when the text input's text changes          |
 | value              | Item[]                                               | No        | Set default value. A array containing the "valueField".             |
@@ -120,9 +112,6 @@ yarn add react-native-element-dropdown
 | renderSelectedItem | (item: object, unSelect?: () => void) => JSX.Element | No        | Takes an item from data and renders it into the list selected       |
 | alwaysRenderSelectedItem | Boolean                                        | No        | Always show the list of selected items                              |
 | visibleSelectedItem | Boolean                                             | No        | Option to hide selected item list, Ẽx: visibleSelectedItem={false}  |
-| search             | Boolean                                              | No        | Show or hide input search                                           |
-| searchQuery        | (keyword: string, labelValue: string) => Boolean     | No        | Callback used to filter the list of items                           |
-| inputSearchStyle   | ViewStyle                                            | No        | Styling for input search                                            |
 | searchPlaceholder  | String                                               | No        | The string that will be rendered before text input has been entered |
 | renderInputSearch  | (onSearch: (text:string) => void) => JSX.Element     | No        | Customize TextInput search                                          |
 | disable            | Boolean                                              | No        | Specifies the disabled state of the Dropdown                        |
@@ -205,7 +194,6 @@ yarn add react-native-element-dropdown
           style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
-          inputSearchStyle={styles.inputSearchStyle}
           iconStyle={styles.iconStyle}
           data={data}
           search
@@ -269,10 +257,6 @@ yarn add react-native-element-dropdown
     iconStyle: {
       width: 20,
       height: 20,
-    },
-    inputSearchStyle: {
-      height: 40,
-      fontSize: 16,
     },
   });
 ```

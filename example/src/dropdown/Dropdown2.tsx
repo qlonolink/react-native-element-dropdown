@@ -24,7 +24,6 @@ const DropdownComponent = () => {
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
         search
@@ -32,7 +31,6 @@ const DropdownComponent = () => {
         labelField="label"
         valueField="value"
         placeholder="Dropdown 2"
-        searchPlaceholder="Search..."
         value={value}
         closeModalWhenSelectedItem={false}
         onChange={(item) => {

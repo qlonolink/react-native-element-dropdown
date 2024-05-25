@@ -83,9 +83,7 @@ const DropdownComponent = () => {
       labelField="name"
       valueField="url"
       placeholder="Lazy Load Dropdown"
-      search
       maxHeight={250}
-      searchPlaceholder="Search..."
       onChange={(item) => {
         setValue(item);
         setIsSearch(false);

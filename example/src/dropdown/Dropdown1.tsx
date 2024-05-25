@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 const data = [
   { label: 'Item 1', value: '1', search: 'Item 1' },
@@ -11,11 +10,6 @@ const data = [
   { label: 'Item 4', value: '4', search: 'Item 4' },
   { label: 'Item 5', value: '5', search: 'Item 5' },
   { label: 'Item 6', value: '6', search: 'Item 6' },
-  { label: 'Item 7', value: '7', search: 'Item 7' },
-  { label: 'Item 8', value: '8', search: 'Item 8' },
-];
-
-const excludeItem = [
   { label: 'Item 7', value: '7', search: 'Item 7' },
   { label: 'Item 8', value: '8', search: 'Item 8' },
 ];
@@ -42,19 +36,15 @@ const DropdownComponent = () => {
         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
-        excludeSearchItems={excludeItem}
         autoScroll
         search
         maxHeight={300}
         minHeight={100}
         labelField="label"
         valueField="value"
-        searchField="search"
         placeholder={!isFocus ? 'Dropdown 1' : '...'}
-        searchPlaceholder="Search..."
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -62,14 +52,6 @@ const DropdownComponent = () => {
           setValue(item.value);
           setIsFocus(false);
         }}
-        renderLeftIcon={() => (
-          <AntDesign
-            style={styles.icon}
-            color={isFocus ? 'blue' : 'black'}
-            name="folderopen"
-            size={20}
-          />
-        )}
       />
     </View>
   );
