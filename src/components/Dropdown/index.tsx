@@ -15,7 +15,6 @@ import {
   Dimensions,
   FlatList,
   I18nManager,
-  Image,
   Keyboard,
   KeyboardEvent,
   Modal,
@@ -33,7 +32,6 @@ import { DropdownProps } from './model';
 import { styles } from './styles';
 
 const { isTablet } = useDetectDevice;
-const ic_down = require('../../assets/down.png');
 
 const statusBarHeight: number = StatusBar.currentHeight || 0;
 
@@ -50,22 +48,18 @@ const DropdownComponent: <T>(
       containerStyle,
       itemContainerStyle,
       itemTextStyle,
-      iconStyle,
       data = [],
       labelField,
       valueField,
       value,
       activeColor = '#F6F7F8',
       fontFamily,
-      iconColor = 'gray',
       search = false,
       maxHeight = 340,
       minHeight = 0,
       disable = false,
       keyboardAvoiding = true,
       inverted = true,
-      renderLeftIcon,
-      renderRightIcon,
       renderItem,
       onFocus,
       onBlur,
@@ -344,22 +338,7 @@ const DropdownComponent: <T>(
           accessibilityLabel={accessibilityLabel}
           onPress={showOrClose}
         >
-          <View style={styles.dropdown}>
-            {renderLeftIcon?.(visible)}
-            {baseElement}
-            {renderRightIcon ? (
-              renderRightIcon(visible)
-            ) : (
-              <Image
-                source={ic_down}
-                style={StyleSheet.flatten([
-                  styles.icon,
-                  { tintColor: iconColor },
-                  iconStyle,
-                ])}
-              />
-            )}
-          </View>
+          <View style={styles.dropdown}>{baseElement}</View>
         </TouchableWithoutFeedback>
       );
     };

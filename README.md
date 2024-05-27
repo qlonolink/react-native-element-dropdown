@@ -56,8 +56,6 @@ yarn add react-native-element-dropdown
 | maxHeight          | Number                                          | No        | Customize max height for list container                             |
 | minHeight          | Number                                          | No        | Customize min height for list container                             |
 | fontFamily         | String                                          | No        | Customize font style                                                |
-| iconStyle          | ImageStyle                                      | No        | Styling for icon                                                    |
-| iconColor          | String                                          | No        | Color of icons                                                      |
 | itemContainerStyle | TextStyle                                       | No        | Styling for item container in list                                  |
 | itemTextStyle      | TextStyle                                       | No        | Styling for text item in list                                       |
 | activeColor        | String                                          | No        | Background color for item selected in list container                |
@@ -67,8 +65,6 @@ yarn add react-native-element-dropdown
 | dropdownPositionStart | 'left' or 'right'                            | No        |  Dropdown list start position. Default is 'left'                    |
 | autoScroll         | Boolean                                         | No        | Auto scroll to index item selected, default is true                 |
 | showsVerticalScrollIndicator | Boolean                               | No        | When true, shows a vertical scroll indicator, default is true       |
-| renderLeftIcon     | (visible?: boolean) => JSX.Element              | No        | Customize left icon for dropdown                                    |
-| renderRightIcon    | (visible?: boolean) => JSX.Element              | No        | Customize right icon for dropdown                                   |
 | renderItem         | (item: object, selected: Boolean) => JSX.Element| No        | Takes an item from data and renders it into the list                |
 | flatListProps      | FlatListProps                                   | No        | Customize FlatList element                                          |
 | inverted           | Boolean                                         | No        | Reverses the direction of scroll on top position mode. Default is true|
