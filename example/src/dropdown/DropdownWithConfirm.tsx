@@ -31,21 +31,16 @@ const DropdownComponent = () => {
     <Dropdown
       ref={ref}
       style={styles.dropdown}
-      placeholderStyle={styles.placeholderStyle}
-      selectedTextStyle={styles.selectedTextStyle}
-      inputSearchStyle={styles.inputSearchStyle}
       iconStyle={styles.iconStyle}
       data={data}
-      search
       maxHeight={300}
       labelField="label"
       valueField="value"
-      placeholder="Dropdown Confirm"
-      searchPlaceholder="Search..."
       value={value}
       onChange={(item) => {
         setValue(item.value);
       }}
+      currentElement={<Text>OK</Text>}
       renderItem={renderItem}
       confirmSelectItem
       onConfirmSelectItem={(item) => {

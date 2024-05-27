@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Text } from 'react-native';
 import { Button, StyleSheet, View } from 'react-native';
 import { Dropdown, IDropdownRef } from 'react-native-element-dropdown';
 
@@ -22,23 +23,19 @@ const DropdownComponent = () => {
       <Dropdown
         ref={ref}
         style={styles.dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
         search
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder="Dropdown 2"
-        searchPlaceholder="Search..."
         value={value}
         closeModalWhenSelectedItem={false}
         onChange={(item) => {
           setValue(item.value);
         }}
         onChangeText={() => {}} // Keep search keyword
+        currentElement={<Text>OK</Text>}
       />
       <View style={styles.button}>
         <Button
