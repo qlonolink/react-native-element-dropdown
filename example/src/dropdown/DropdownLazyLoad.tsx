@@ -82,7 +82,6 @@ const DropdownComponent = () => {
       inverted={false}
       labelField="name"
       valueField="url"
-      placeholder="Lazy Load Dropdown"
       maxHeight={250}
       onChange={(item) => {
         setValue(item);
@@ -91,6 +90,11 @@ const DropdownComponent = () => {
       onChangeText={(keyword) => {
         setIsSearch(keyword.length > 0);
       }}
+      currentElement={
+        <Text style={styles.icon}>
+          {value ? data.find((item) => item.url === value)?.name : ''}
+        </Text>
+      }
       flatListProps={{
         ListEmptyComponent: <RenderEmpty />,
         ListFooterComponent: <RenderFooter isLoading={isLoading} />,

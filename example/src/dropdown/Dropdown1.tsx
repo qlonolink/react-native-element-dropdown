@@ -34,8 +34,6 @@ const DropdownComponent = () => {
       {renderLabel()}
       <Dropdown
         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
         iconStyle={styles.iconStyle}
         data={data}
         autoScroll
@@ -44,7 +42,6 @@ const DropdownComponent = () => {
         minHeight={100}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? 'Dropdown 1' : '...'}
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -52,6 +49,11 @@ const DropdownComponent = () => {
           setValue(item.value);
           setIsFocus(false);
         }}
+        currentElement={
+          <Text style={styles.inputSearchStyle}>
+            {value ? data.find((item) => item.value === value)?.search : ''}
+          </Text>
+        }
       />
     </View>
   );

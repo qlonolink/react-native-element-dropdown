@@ -48,12 +48,9 @@ const DropdownComponent: <T>(
       onChange,
       style = {},
       containerStyle,
-      placeholderStyle,
-      selectedTextStyle,
       itemContainerStyle,
       itemTextStyle,
       iconStyle,
-      selectedTextProps = {},
       data = [],
       labelField,
       valueField,
@@ -61,7 +58,6 @@ const DropdownComponent: <T>(
       activeColor = '#F6F7F8',
       fontFamily,
       iconColor = 'gray',
-      placeholder = 'Select item',
       search = false,
       maxHeight = 340,
       minHeight = 0,
@@ -86,6 +82,9 @@ const DropdownComponent: <T>(
       mode = 'default',
       closeModalWhenSelectedItem = true,
       excludeItems = [],
+      baseElement,
+      dropdownPositionStart = 'left',
+      dropdownWidth = 0,
     } = props;
 
     const ref = useRef<View>(null);
@@ -190,12 +189,15 @@ const DropdownComponent: <T>(
             width: Math.floor(width),
             top: Math.floor(top + statusBarHeight),
             bottom: Math.floor(bottom - statusBarHeight),
-            left: Math.floor(left),
+            left: Math.floor(
+              left +
+                (dropdownPositionStart === 'right' ? width - dropdownWidth : 0)
+            ),
             height: Math.floor(height),
           });
         });
       }
-    }, [H, W, orientation, mode]);
+    }, [mode, orientation, H, W, dropdownPositionStart, dropdownWidth]);
 
     const onKeyboardDidShow = useCallback(
       (e: KeyboardEvent) => {
@@ -335,7 +337,6 @@ const DropdownComponent: <T>(
     );
 
     const _renderDropdown = () => {
-      const isSelected = currentValue && _.get(currentValue, valueField);
       return (
         <TouchableWithoutFeedback
           testID={testID}
@@ -345,18 +346,7 @@ const DropdownComponent: <T>(
         >
           <View style={styles.dropdown}>
             {renderLeftIcon?.(visible)}
-            <Text
-              style={[
-                styles.textItem,
-                isSelected !== null ? selectedTextStyle : placeholderStyle,
-                font(),
-              ]}
-              {...selectedTextProps}
-            >
-              {isSelected !== null
-                ? _.get(currentValue, labelField)
-                : placeholder}
-            </Text>
+            {baseElement}
             {renderRightIcon ? (
               renderRightIcon(visible)
             ) : (
